@@ -1,32 +1,8 @@
-// // ignore_for_file: prefer_const_constructors, use_full_hex_values_for_flutter_colors
-
-// import 'package:books/screens/auth/login_screen.dart';
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Books',
-//       theme: ThemeData(
-//         appBarTheme: AppBarTheme(backgroundColor: Color(4278231372)),
-//         fontFamily: 'Inter',
-//         colorScheme: ColorScheme.fromSeed(seedColor: Color(4278231372)),
-//         useMaterial3: true,
-//       ),
-//       home: LoginScreen(),
-//     );
-//   }
-// }
-
+import 'package:books/screens/Frames/frame24.dart';
 import 'package:books/screens/auth/login_screen.dart';
+import 'package:books/screens/auth/register.dart';
+import 'package:books/screens/home/home_screen.dart';
+import 'package:books/screens/home/main_screen.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -69,9 +45,13 @@ class _MyAppState extends State<MyApp> {
           useMaterial3: true,
         ),
         title: "Speak Logic",
-        initialRoute: 'login',
+        initialRoute: 'mainscreen',
         routes: {
           'login': (context) => const LoginScreen(),
+          'register': (context) => const RegisterScreen(),
+          'mainscreen': (context) => const MainScreen(),
+          'homescreen': (context) => const HomeScreen(),
+          'frame24': (context) => const Frame24Screen(),
         },
       ),
     );
