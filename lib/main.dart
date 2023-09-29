@@ -1,7 +1,6 @@
-import 'package:books/screens/Frames/frame24.dart';
+import 'package:books/screens/Books/books_screen.dart';
 import 'package:books/screens/auth/login_screen.dart';
 import 'package:books/screens/auth/register.dart';
-import 'package:books/screens/home/home_screen.dart';
 import 'package:books/screens/home/main_screen.dart';
 import 'package:books/screens/problem/problem.dart';
 import 'package:books/values/colors.dart';
@@ -34,13 +33,12 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       title: "Speak Logic",
-      initialRoute: 'mainscreen',
+      initialRoute: 'login',
       routes: {
         'login': (context) => const LoginScreen(),
         'register': (context) => const RegisterScreen(),
         'mainscreen': (context) => const MainScreen(),
-        'homescreen': (context) => const HomeScreen(),
-        'frame24': (context) => const Frame24Screen(),
+        'homescreen': (context) => const BooksScreen(),
         'problem': (context) => const ProblemScreen(),
       },
     );

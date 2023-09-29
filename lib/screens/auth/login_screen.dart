@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:books/screens/auth/register.dart';
-import 'package:books/screens/home/home_screen.dart';
+import 'package:books/screens/utils/bottomNavBar/bottomNaviBar.dart';
+import 'package:books/screens/Books/books_screen.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -139,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomeScreen()));
+                                    builder: (context) => BottomNavScreen()));
                           },
                           child: Container(
                             height: 50,

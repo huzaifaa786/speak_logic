@@ -1,4 +1,6 @@
 import 'package:books/values/colors.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -11,15 +13,13 @@ class ProblemScreen extends StatefulWidget {
 
 class _ProblemScreenState extends State<ProblemScreen> {
   TextEditingController _textEditingController = TextEditingController();
-    final CarouselController _controller = CarouselController();
- final List<String> dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
-    final List<String> items = [
-      'Item 1',
-      'Item 2',
-      'Item 3',
-      'Item 4',
-      'Item 5',
-    ];
+  final List<String> imgList = [
+    'https://admin.klickwash.net/assets/img/logo1.png',
+    'https://admin.klickwash.net/assets/img/logo1.png',
+    'https://admin.klickwash.net/assets/img/logo1.png'
+  ];
+  final List<String> dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
+  int _current = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,103 +91,75 @@ class _ProblemScreenState extends State<ProblemScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 120,),
-                 Padding(
-                      padding: const EdgeInsets.only(top: 18.0, bottom: 12),
-                      child: Stack(
-                        children: [
-                          CarouselSlider(
-                            // carouselController: _controller,
-                            options: CarouselOptions(
-                              height: 100.0,
-                              viewportFraction: 1,
-                              enlargeCenterPage: false,
-                              aspectRatio: 1,
-                              autoPlay:
-                                  false, // Set to true for automatic sliding
-                            ),
-                            items: items.map((item) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 5.0),
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        item,
-                                        style: TextStyle(
-                                          fontSize: 24.0,
-                                          color: white,
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
-                            }).toList(),
-                          ),
-                          Positioned(
-                            top: 25,
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  InkWell(
-                                    onTap: () {
-                                      _controller.previousPage();
-                                    },
-                                    child: Container(
-                                      margin: EdgeInsets.only(left: 10),
-                                      padding: EdgeInsets.all(6),
-                                      decoration: BoxDecoration(
-                                          color: mainColor),
-                                      child: Icon(
-                                        Icons.arrow_back_ios_new,
-                                        color: white,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(right: 10),
-                                    padding: EdgeInsets.all(6),
-                                    decoration:
-                                        BoxDecoration(color: mainColor),
-                                    child: Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: white,
-                                    ),
-                                  ),
-                                  //                                 ElevatedButton(
-                                  //                                   onPressed: () {
-                                  //                                     _controller.previousPage();
-                                  //                                   },
-                                  //                                   style: ElevatedButton.styleFrom(
-                                  //   primary: mainColor, // Background color
-                                  // ),
-                                  //                                   child: Icon(Icons.arrow_back_ios),
-                                  //                                 ),
-                                  // ElevatedButton(
-                                  //   onPressed: () {
-                                  //     // Next button logic
-                                  //     _controller.nextPage();
-                                  //   },
-                                  //   child: Text('Next'),
-                                  // ),
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                // SizedBox(height: 20,),
               ],
             )),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 14, bottom: 12),
+                child: Stack(
+                  children: [
+                    SizedBox(
+                      height: 100,
+                      width: MediaQuery.of(context).size.width,
+                      child: CarouselSlider(
+                        options: CarouselOptions(
+                          autoPlay: true,
+                          viewportFraction: 1,
+                          enlargeCenterPage: false,
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                              _current = index;
+                            });
+                          },
+                        ),
+                        items: imgList.map((i) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[200],
+                                ),
+                                child: CachedNetworkImage(
+                                  imageUrl: i,
+                                  fit: BoxFit.cover,
+                                ),
+                              );
+                            },
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 24,
+                      right: 115,
+                      child: CarouselIndicator(
+                        count: 3,
+                        index: _current,
+                        activeColor: mainColor,
+                        color: Colors.white60,
+                        width: 40,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 8),
+                child: Text('Problem',
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.w500,color: mainColor)),
+              ),
+              Text(
+                  'It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication. It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.')
+            ],
+          ),
+        ),
       ]),
     )));
   }

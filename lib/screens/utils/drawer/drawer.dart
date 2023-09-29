@@ -1,22 +1,16 @@
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
-class Frame24Screen extends StatefulWidget {
-  const Frame24Screen({super.key});
+class SideDrawer extends StatelessWidget {
+  const SideDrawer({super.key});
 
-  @override
-  State<Frame24Screen> createState() => _Frame24ScreenState();
-}
-
-class _Frame24ScreenState extends State<Frame24Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(children: [
           Container(
-            padding: EdgeInsets.only(top: 40, left: 35),
+            padding: EdgeInsets.only(top: 50, left: 20),
             height: 198,
             width: MediaQuery.of(context).size.width * 1,
             color: mainColor,
@@ -31,7 +25,7 @@ class _Frame24ScreenState extends State<Frame24Screen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 65),
+                  padding: const EdgeInsets.only(left: 50),
                   child: Column(
                     children: [
                       Container(
@@ -64,8 +58,9 @@ class _Frame24ScreenState extends State<Frame24Screen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 30),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
@@ -77,9 +72,10 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               ],
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
@@ -91,9 +87,10 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               ],
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
@@ -105,9 +102,10 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               ],
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
@@ -119,9 +117,10 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               ],
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
@@ -133,9 +132,10 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               ],
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
@@ -147,9 +147,10 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               ],
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
@@ -161,9 +162,10 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               ],
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
@@ -175,21 +177,26 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               ],
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.only(left: 45,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.only(left: 45, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(' Speak Logic Gears'),
                 Icon(Icons.keyboard_arrow_right),
               ],
             ),
-          ), Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    Icon(Icons.logout,),
+                    Icon(
+                      Icons.logout,
+                    ),
                     Text(' Log out'),
                   ],
                 ),
@@ -198,7 +205,7 @@ class _Frame24ScreenState extends State<Frame24Screen> {
             ),
           )
         ]),
-      )),
+      ),
     );
   }
 }

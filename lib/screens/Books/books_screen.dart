@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class BooksScreen extends StatefulWidget {
+  const BooksScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<BooksScreen> createState() => _BooksScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _BooksScreenState extends State<BooksScreen> {
   TextEditingController _textEditingController = TextEditingController();
   Future<List<DataModel>> loadJsonData() async {
     final String jsonString = await rootBundle.loadString('assets/data.json');
@@ -26,9 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.menu, color: white),
-      ),
       body: SafeArea(
         child: Column(
           children: [
