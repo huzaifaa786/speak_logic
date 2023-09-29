@@ -70,7 +70,7 @@ class _Frame24ScreenState extends State<Frame24Screen> {
                 Row(
                   children: [
                     Icon(Icons.question_mark_outlined),
-                    Text('Questions'),
+                    Text(' Questions'),
                   ],
                 ),
                 Icon(Icons.keyboard_arrow_right_outlined),
@@ -84,7 +84,7 @@ class _Frame24ScreenState extends State<Frame24Screen> {
                 Row(
                   children: [
                     Icon(Icons.play_circle_outlined),
-                    Text('Videos'),
+                    Text(' Videos'),
                   ],
                 ),
                 Icon(Icons.keyboard_arrow_right),
@@ -98,7 +98,7 @@ class _Frame24ScreenState extends State<Frame24Screen> {
                 Row(
                   children: [
                     Icon(Icons.chat_outlined),
-                    Text('Forum'),
+                    Text(' Forum'),
                   ],
                 ),
                 Icon(Icons.keyboard_arrow_right),
@@ -112,7 +112,7 @@ class _Frame24ScreenState extends State<Frame24Screen> {
                 Row(
                   children: [
                     Icon(Icons.phone_android),
-                    Text('Contact us'),
+                    Text(' Contact us'),
                   ],
                 ),
                 Icon(Icons.keyboard_arrow_right),
@@ -126,7 +126,7 @@ class _Frame24ScreenState extends State<Frame24Screen> {
                 Row(
                   children: [
                     Icon(Icons.computer_sharp),
-                    Text('Software'),
+                    Text(' Software'),
                   ],
                 ),
                 Icon(Icons.keyboard_arrow_right),
@@ -140,7 +140,21 @@ class _Frame24ScreenState extends State<Frame24Screen> {
                 Row(
                   children: [
                     Icon(Icons.question_mark_outlined),
-                    Text('Support'),
+                    Text(' Support'),
+                  ],
+                ),
+                Icon(Icons.keyboard_arrow_right),
+              ],
+            ),
+          ),
+           Padding(
+            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.circle_notifications_outlined),
+                    Text(' Announcements'),
                   ],
                 ),
                 Icon(Icons.keyboard_arrow_right),
@@ -154,7 +168,7 @@ class _Frame24ScreenState extends State<Frame24Screen> {
                 Row(
                   children: [
                     Icon(Icons.question_mark_outlined),
-                    Text('Questions'),
+                    Text(' My books'),
                   ],
                 ),
                 Icon(Icons.keyboard_arrow_right),
@@ -162,29 +176,10 @@ class _Frame24ScreenState extends State<Frame24Screen> {
             ),
           ),
            Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
+            padding: const EdgeInsets.only(left: 45,right: 20,top: 10),
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.question_mark_outlined),
-                    Text('Questions'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right),
-              ],
-            ),
-          ),
-           Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.question_mark_outlined),
-                    Text('Questions'),
-                  ],
-                ),
+                Text(' Speak Logic Gears'),
                 Icon(Icons.keyboard_arrow_right),
               ],
             ),
@@ -194,8 +189,8 @@ class _Frame24ScreenState extends State<Frame24Screen> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.question_mark_outlined),
-                    Text('Questions'),
+                    Icon(Icons.logout,),
+                    Text(' Log out'),
                   ],
                 ),
                 Icon(Icons.keyboard_arrow_right),
