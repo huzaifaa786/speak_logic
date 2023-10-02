@@ -44,7 +44,6 @@ class _MyAppState extends State<MyApp> {
         'problem': (context) => const ProblemScreen(),
         'problemlist': (context) => const Problemlist(),
         'searchbook': (context) => const SearchBook(),
-        'solutionlist': (context) => const Solutionlist(),
       },
     );
   }
