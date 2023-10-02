@@ -30,7 +30,7 @@ class _BooksScreenState extends State<BooksScreen> {
         child: Column(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.23,
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(right: 20, left: 20),
               decoration: BoxDecoration(color: mainColor),
@@ -125,10 +125,10 @@ class _BooksScreenState extends State<BooksScreen> {
                       return GridView.builder(
                         gridDelegate:
                             const SliverGridDelegateWithMaxCrossAxisExtent(
-                                maxCrossAxisExtent: 320,
-                                childAspectRatio: 0.65,
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20),
+                                maxCrossAxisExtent: 200,
+                                childAspectRatio: 0.63,
+                                crossAxisSpacing: 12,
+                                mainAxisSpacing: 12),
                         itemCount: dataList.length,
                         itemBuilder: (context, index) {
                           final item = dataList[index];
@@ -150,7 +150,7 @@ class _BooksScreenState extends State<BooksScreen> {
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                          top: 4.0, bottom: 6),
+                                          top: 2, bottom: 2),
                                       child: Text(
                                         item.name,
                                         maxLines: 2,
@@ -208,10 +208,10 @@ class _BooksScreenState extends State<BooksScreen> {
                                               borderRadius:
                                                   BorderRadius.circular(4)),
                                           padding: EdgeInsets.only(
-                                              left: 8,
-                                              right: 8,
-                                              top: 4,
-                                              bottom: 4),
+                                              left: 4,
+                                              right:4,
+                                              top: 2,
+                                              bottom: 2),
                                           child: Text(
                                             'Pdf',
                                             style: TextStyle(

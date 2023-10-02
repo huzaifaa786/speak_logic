@@ -4,6 +4,7 @@ import 'package:books/screens/problem/problem.dart';
 import 'package:books/screens/utils/drawer/drawer.dart';
 import 'package:books/screens/Books/books_screen.dart';
 import 'package:books/screens/home/main_screen.dart';
+import 'package:books/screens/solution/solution.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -54,7 +55,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
     var _fragments = [
       const MainScreen(),
       const ProblemScreen(),
-      const MainScreen(),
+      const SolutionScreen(),
       const BooksScreen(),
       const MainScreen(),
     ];
@@ -75,7 +76,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
             child: _fragments[_navigationMenuIndex],
           ),
           bottomNavigationBar: BottomAppBar(
-            height: MediaQuery.of(context).size.height * 0.075,
+            height: MediaQuery.of(context).size.height * 0.095,
             color: Color(4278231372),
             child: SizedBox(
               height: 60,

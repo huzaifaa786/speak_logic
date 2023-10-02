@@ -27,7 +27,7 @@ class _ProblemScreenState extends State<ProblemScreen> {
             child: SingleChildScrollView(
       child: Column(children: [
         Container(
-            height: MediaQuery.of(context).size.height * 0.20,
+            height: MediaQuery.of(context).size.height * 0.23,
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.only(right: 20, left: 20),
             decoration: BoxDecoration(color: mainColor),
@@ -152,11 +152,14 @@ class _ProblemScreenState extends State<ProblemScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 8, bottom: 8),
                 child: Text('Problem',
-                    style:
-                        TextStyle(fontSize: 24, fontWeight: FontWeight.w500,color: mainColor)),
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                        color: mainColor)),
               ),
               Text(
-                  'It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication. It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.')
+                  'It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication. It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication.'
+                  )
             ],
           ),
         ),

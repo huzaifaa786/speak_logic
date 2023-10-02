@@ -1,3 +1,4 @@
+import 'package:books/screens/Question/question.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -59,17 +60,24 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.question_mark_outlined),
-                    Text(' Questions'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right_outlined),
-              ],
+            child: GestureDetector(onTap:  () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => QuestionScreen()));
+                          },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.question_mark_outlined),
+                      Text(' Questions'),
+                    ],
+                  ),
+                  Icon(Icons.keyboard_arrow_right_outlined),
+                ],
+              ),
             ),
           ),
           Padding(
