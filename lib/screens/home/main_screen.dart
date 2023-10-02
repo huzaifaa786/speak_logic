@@ -294,7 +294,7 @@ class _MainScreenState extends State<MainScreen> {
                                 gridDelegate:
                                     const SliverGridDelegateWithMaxCrossAxisExtent(
                                         maxCrossAxisExtent: 200,
-                                        childAspectRatio: 0.67,
+                                        childAspectRatio: 0.63,
                                         crossAxisSpacing: 20,
                                         mainAxisSpacing: 20),
                                 itemCount: 2,
@@ -303,7 +303,7 @@ class _MainScreenState extends State<MainScreen> {
                                   return Stack(
                                     children: [
                                       Container(
-                                        padding: EdgeInsets.all(12),
+                                        padding: EdgeInsets.all(10),
                                         decoration: BoxDecoration(
                                             border:
                                                 Border.all(color: mainColor),
@@ -339,9 +339,9 @@ class _MainScreenState extends State<MainScreen> {
                                                           BorderRadius.circular(
                                                               4)),
                                                   padding: EdgeInsets.only(
-                                                      left: 8,
-                                                      right: 8,
-                                                      top: 4,
+                                                      left: 4,
+                                                      right: 4,
+                                                      top: 2,
                                                       bottom: 4),
                                                   child: Text(
                                                     'Pdf',

@@ -3,6 +3,7 @@ import 'package:books/screens/auth/login_screen.dart';
 import 'package:books/screens/auth/register.dart';
 import 'package:books/screens/home/main_screen.dart';
 import 'package:books/screens/problem/problem.dart';
+import 'package:books/screens/solution/solution.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
