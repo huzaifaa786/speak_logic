@@ -1,7 +1,9 @@
+import 'package:books/screens/Announcements/Announcements.dart';
 import 'package:books/screens/Books/books_screen.dart';
 import 'package:books/screens/Books/search_book.dart';
 import 'package:books/screens/auth/login_screen.dart';
 import 'package:books/screens/auth/register.dart';
+import 'package:books/screens/forum/forum.dart';
 import 'package:books/screens/home/main_screen.dart';
 import 'package:books/screens/problem/problem.dart';
 import 'package:books/screens/problem/problemlist.dart';
@@ -36,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       title: "Speak Logic",
-      initialRoute: 'video',
+      initialRoute: 'Annousment',
       routes: {
         'login': (context) => const LoginScreen(),
         'register': (context) => const RegisterScreen(),
@@ -47,6 +49,8 @@ class _MyAppState extends State<MyApp> {
         'searchbook': (context) => const SearchBook(),
         'solutionlist': (context) => const Solutionlist(),
          'video': (context) => const VideoScreen(),
+         'forum': (context) => const ForumScreen(),
+          'Annousment': (context) => const Announcements(),
       },
     );
   }

@@ -14,7 +14,7 @@ class Headingcontainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.of(context).size.height * 0.23,
+        height: MediaQuery.of(context).size.height * 0.2,
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.only(right: 20, left: 20),
         decoration: BoxDecoration(color: mainColor),
@@ -27,8 +27,9 @@ class Headingcontainer extends StatelessWidget {
                   fontSize: 40, fontWeight: FontWeight.w700, color: white),
             ),
             Divider(),
+            SizedBox(height: 2,),
             Container(
-              margin: EdgeInsets.only(top: 12),
+              margin: EdgeInsets.only(top: 20),
               decoration: BoxDecoration(
                 color: white.withOpacity(0.8),
                 border: Border.all(color: borderGreen, width: 1),

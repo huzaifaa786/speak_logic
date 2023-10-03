@@ -3,13 +3,13 @@ import 'package:books/values/colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class ProBox extends StatelessWidget {
-  const ProBox(
+class VideoBox extends StatelessWidget {
+  const VideoBox(
       {Key? key,
       this.button,
       this.text,
       this.rounded = false,
-      this.color})
+      this.color = mainColor})
       : super(key: key);
 
   final color;
@@ -34,8 +34,8 @@ class ProBox extends StatelessWidget {
           )
         ],
       ),
-      height: MediaQuery.of(context).size.height * 0.28,
-      width: MediaQuery.of(context).size.width * 0.43,
+      height: MediaQuery.of(context).size.height * 0.29,
+      width: MediaQuery.of(context).size.width * 0.45,
       padding: EdgeInsets.only(right: 20, left: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,17 +43,18 @@ class ProBox extends StatelessWidget {
           SizedBox(height: 10,),
           Text(
             text,
-            style: TextStyle(fontSize: 20, color: color,fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 15, color: Colors.black,fontWeight: FontWeight.w500),
           ),
+          SizedBox(height: 10,),
           Text(
             'It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication',
-            maxLines: 6,
+            maxLines: 9,
             overflow: TextOverflow.ellipsis,
           ),
           SizedBox(
             height: 12,
           ),
-          Button(title: 'View more', onPressed: () {},textcolor: white,)
+         
         ],
       ),
     );

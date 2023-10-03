@@ -15,10 +15,12 @@ class SearchInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.20,
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.only(right: 20, left: 20),
-      decoration: BoxDecoration(color: mainColor),
+      margin: EdgeInsets.only(top: 20),
+      decoration: BoxDecoration(
+        color: white.withOpacity(0.8),
+        border: Border.all(color: borderGreen, width: 1),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
       child: Row(
         children: [
           Expanded(
@@ -43,7 +45,7 @@ class SearchInput extends StatelessWidget {
             height: 55,
             width: 55,
             decoration: BoxDecoration(
-              color: white,
+              color: mainColor,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(10.0),
                 bottomRight: Radius.circular(10.0),
@@ -52,7 +54,10 @@ class SearchInput extends StatelessWidget {
               ),
             ),
             child: IconButton(
-              icon: Icon(Icons.search),
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
               onPressed: () {
                 // Perform the action when the button is pressed
                 String searchText = controller.text;
