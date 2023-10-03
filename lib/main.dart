@@ -5,6 +5,8 @@ import 'package:books/screens/auth/register.dart';
 import 'package:books/screens/home/main_screen.dart';
 import 'package:books/screens/problem/problem.dart';
 import 'package:books/screens/problem/problemlist.dart';
+import 'package:books/screens/solution/soutionlist.dart';
+import 'package:books/screens/video/video.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       title: "Speak Logic",
-      initialRoute: 'solutionlist',
+      initialRoute: 'video',
       routes: {
         'login': (context) => const LoginScreen(),
         'register': (context) => const RegisterScreen(),
@@ -43,6 +45,8 @@ class _MyAppState extends State<MyApp> {
         'problem': (context) => const ProblemScreen(),
         'problemlist': (context) => const Problemlist(),
         'searchbook': (context) => const SearchBook(),
+        'solutionlist': (context) => const Solutionlist(),
+         'video': (context) => const VideoScreen(),
       },
     );
   }
