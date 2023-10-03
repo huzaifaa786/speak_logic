@@ -82,7 +82,8 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
+            child:
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
@@ -93,7 +94,7 @@ class SideDrawer extends StatelessWidget {
                 ),
                 Icon(Icons.keyboard_arrow_right),
               ],
-            ),
+              ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),

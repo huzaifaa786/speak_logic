@@ -1,4 +1,5 @@
 import 'package:books/screens/utils/drawer/drawer.dart';
+import 'package:books/static/question%20container.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -164,23 +165,51 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     ]),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(color: hintColor),
-              height: MediaQuery.of(context).size.height * 0.06,
-              width: MediaQuery.of(context).size.width * 0.8,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10),
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'What is speak logic project ?',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-                    ),
-                    Icon(Icons.add,color: mainColor,)
-                  ],
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+              child: Questioncontainer(),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+              child: Questioncontainer(),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+              child: Questioncontainer(),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+              child: Questioncontainer(),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20, right: 20,),
+              child: Questioncontainer(),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20, right: 20, ),
+              child: Divider(
+                color: mainColor,
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+              child: Text(
+                'While those who are aware of The Speak Logic Project can make adjustment to their communications from the learning of the principle, people who are unaware of the project and do not understand the principle of communication may continue to struggle. In order for the project to be effective, knowledge of The Speak Logic Project must be spread and you can help us do that. In order to make other people aware of the project, you can do the following:',
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-            )
+            ),
+            
           ],
         ),
       )),
