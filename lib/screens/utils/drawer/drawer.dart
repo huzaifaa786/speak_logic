@@ -1,4 +1,6 @@
 import 'package:books/screens/Question/question.dart';
+import 'package:books/screens/contactus/contactus.dart';
+import 'package:books/screens/software/software.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -82,7 +84,8 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
+            child:
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
@@ -93,7 +96,7 @@ class SideDrawer extends StatelessWidget {
                 ),
                 Icon(Icons.keyboard_arrow_right),
               ],
-            ),
+              ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
@@ -112,32 +115,46 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.phone_android),
-                    Text(' Contact us'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right),
-              ],
+            child: GestureDetector(onTap:  () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ContactScreen()));
+                          },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.phone_android),
+                      Text(' Contact us'),
+                    ],
+                  ),
+                  Icon(Icons.keyboard_arrow_right),
+                ],
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.computer_sharp),
-                    Text(' Software'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right),
-              ],
+            child: GestureDetector(onTap:  () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SoftwareScreen()));
+                          },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.computer_sharp),
+                      Text(' Software'),
+                    ],
+                  ),
+                  Icon(Icons.keyboard_arrow_right),
+                ],
+              ),
             ),
           ),
           Padding(

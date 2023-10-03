@@ -6,3 +6,4 @@ final shadowColor = Colors.grey.withOpacity(0.5);
 final hintColor = Colors.grey[400];
 const hintText = Colors.grey;
 const borderGreen = Color.fromARGB(255, 2, 139, 66);
+const questioncontainercolor = Color(4293914607);
