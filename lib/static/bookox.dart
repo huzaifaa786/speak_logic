@@ -46,6 +46,7 @@ class BookBox extends StatelessWidget {
             title: 'View more',
             onPressed: () {},
             textcolor: white,
+            buttonWidth: 0.28,
           )
         ],
       ),

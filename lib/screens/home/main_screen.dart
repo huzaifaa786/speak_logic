@@ -276,7 +276,7 @@ class _MainScreenState extends State<MainScreen> {
                                 ConnectionState.waiting) {
                               return Center(
                                 child:
-                                    CircularProgressIndicator(), // Show loading indicator.
+                                    CircularProgressIndicator(), 
                               );
                             } else if (snapshot.hasError) {
                               return Center(
