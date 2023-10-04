@@ -1,3 +1,4 @@
+import 'package:books/screens/utils/drawer/drawer.dart';
 import 'package:books/values/colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
@@ -22,12 +23,19 @@ class _SolutionScreenState extends State<SolutionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+            iconTheme: IconThemeData(color: Colors.white),
+          ),
+          drawer: Drawer(
+            child:
+                SideDrawer(), // Use your custom drawer content widget here
+          ),
         body: SafeArea(
             child: SingleChildScrollView(
       child: Column(
         children: [
           Container(
-              height: MediaQuery.of(context).size.height * 0.23,
+              height: MediaQuery.of(context).size.height * 0.2,
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(right: 20, left: 20),
               decoration: BoxDecoration(color: mainColor),

@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       title: "Speak Logic",
-      initialRoute: 'Annousment',
+      initialRoute: 'login',
       routes: {
         'login': (context) => const LoginScreen(),
         'register': (context) => const RegisterScreen(),
@@ -48,9 +48,9 @@ class _MyAppState extends State<MyApp> {
         'problemlist': (context) => const Problemlist(),
         'searchbook': (context) => const SearchBook(),
         'solutionlist': (context) => const Solutionlist(),
-         'video': (context) => const VideoScreen(),
-         'forum': (context) => const ForumScreen(),
-          'Annousment': (context) => const Announcements(),
+        'video': (context) => const VideoScreen(),
+        'forum': (context) => const ForumScreen(),
+        'Annousment': (context) => const Announcements(),
       },
     );
   }

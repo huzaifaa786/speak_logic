@@ -1,6 +1,10 @@
+import 'package:books/screens/Announcements/Announcements.dart';
+import 'package:books/screens/Books/mybook.dart';
 import 'package:books/screens/Question/question.dart';
 import 'package:books/screens/contactus/contactus.dart';
+import 'package:books/screens/forum/forum.dart';
 import 'package:books/screens/software/software.dart';
+import 'package:books/screens/video/video.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -62,12 +66,11 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
-            child: GestureDetector(onTap:  () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => QuestionScreen()));
-                          },
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => QuestionScreen()));
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -84,30 +87,49 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child:
-             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.play_circle_outlined),
-                    Text(' Videos'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right),
-              ],
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ForumScreen()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => VideoScreen()));
+                    },
+                    child: Row(
+                      children: [
+                        Icon(Icons.play_circle_outlined),
+                        Text(' Videos'),
+                      ],
+                    ),
+                  ),
+                  Icon(Icons.keyboard_arrow_right),
+                ],
               ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.chat_outlined),
-                    Text(' Forum'),
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ForumScreen()));
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.chat_outlined),
+                      Text(' Forum'),
+                    ],
+                  ),
                 ),
                 Icon(Icons.keyboard_arrow_right),
               ],
@@ -115,12 +137,11 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: GestureDetector(onTap:  () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ContactScreen()));
-                          },
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ContactScreen()));
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -137,12 +158,11 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: GestureDetector(onTap:  () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SoftwareScreen()));
-                          },
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SoftwareScreen()));
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -174,32 +194,46 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.circle_notifications_outlined),
-                    Text(' Announcements'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right),
-              ],
+            child: GestureDetector(onTap:  () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Announcements()));
+                          },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.circle_notifications_outlined),
+                      Text(' Announcements'),
+                    ],
+                  ),
+                  Icon(Icons.keyboard_arrow_right),
+                ],
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.question_mark_outlined),
-                    Text(' My books'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right),
-              ],
+            child: GestureDetector(onTap:  () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyBook()));
+                          },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.question_mark_outlined),
+                      Text(' My books'),
+                    ],
+                  ),
+                  Icon(Icons.keyboard_arrow_right),
+                ],
+              ),
             ),
           ),
           Padding(

@@ -1,3 +1,4 @@
+import 'package:books/screens/problem/problem.dart';
 import 'package:books/static/button.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/foundation.dart';
@@ -9,18 +10,20 @@ class ProBox extends StatelessWidget {
       this.button,
       this.text,
       this.rounded = false,
-      this.color})
+      this.color,
+      this.onPressed})
       : super(key: key);
 
   final color;
   final button;
   final text;
   final rounded;
+  final onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         color: Color(0xFFffffff),
         boxShadow: [
           BoxShadow(
@@ -40,10 +43,13 @@ class ProBox extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Text(
             text,
-            style: TextStyle(fontSize: 20, color: color,fontWeight: FontWeight.w500),
+            style: TextStyle(
+                fontSize: 20, color: color, fontWeight: FontWeight.w500),
           ),
           Text(
             'It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication',
@@ -53,7 +59,11 @@ class ProBox extends StatelessWidget {
           SizedBox(
             height: 12,
           ),
-          Button(title: 'View more', onPressed: () {},textcolor: white,)
+          Button(
+            title: 'View more',
+            onPressed: onPressed,
+            textcolor: white,
+          )
         ],
       ),
     );
