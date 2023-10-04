@@ -1,6 +1,7 @@
 import 'package:books/screens/Question/question.dart';
 import 'package:books/screens/contactus/contactus.dart';
 import 'package:books/screens/software/software.dart';
+import 'package:books/screens/support/support.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -159,17 +160,24 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.question_mark_outlined),
-                    Text(' Support'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right),
-              ],
+            child: GestureDetector(onTap:  () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SupportScreen()));
+                          },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.question_mark_outlined),
+                      Text(' Support'),
+                    ],
+                  ),
+                  Icon(Icons.keyboard_arrow_right),
+                ],
+              ),
             ),
           ),
           Padding(

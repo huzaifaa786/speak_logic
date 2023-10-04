@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       title: "Speak Logic",
-      initialRoute: 'Annousment',
+      initialRoute: 'login',
       routes: {
         'login': (context) => const LoginScreen(),
         'register': (context) => const RegisterScreen(),
