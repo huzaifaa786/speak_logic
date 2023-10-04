@@ -14,11 +14,10 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
-
-    final List<String> imgList = [
-    'https://admin.klickwash.net/assets/img/logo1.png',
-    'https://admin.klickwash.net/assets/img/logo1.png',
-    'https://admin.klickwash.net/assets/img/logo1.png'
+  final List<String> imgList = [
+    'assets/images/image 7.png',
+    'assets/images/image 7.png',
+    'assets/images/image 7.png',
   ];
   int _current = 0;
   TextEditingController _textEditingController = TextEditingController();
@@ -32,7 +31,7 @@ class _VideoScreenState extends State<VideoScreen> {
             controller: _textEditingController,
             text: 'Video',
           ),
- Padding(
+          Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,8 +62,8 @@ class _VideoScreenState extends State<VideoScreen> {
                                   decoration: BoxDecoration(
                                     color: Colors.grey[200],
                                   ),
-                                  child: CachedNetworkImage(
-                                    imageUrl: i,
+                                  child: Image.asset(
+                                    i, // Assuming 'i' contains the asset path, e.g., 'assets/image.png'
                                     fit: BoxFit.cover,
                                   ),
                                 );
@@ -87,14 +86,12 @@ class _VideoScreenState extends State<VideoScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
-            
-             
+                SizedBox(
+                  height: 10,
+                ),
               ],
             ),
           ),
-
-
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Container(
@@ -110,14 +107,22 @@ class _VideoScreenState extends State<VideoScreen> {
                     maxLines: 6,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 10,),
-                    Row(
-                      children: [
-                        VideoBox(text:'Videos with sound' ,),
-                        SizedBox(width: 8,),
-                         VideoBox(text:'Videos with sound' ,),
-                      ],
-                    )
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      VideoBox(
+                        text: 'Videos with sound',
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      VideoBox(
+                        text: 'Videos with sound',
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),

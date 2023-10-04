@@ -16,9 +16,9 @@ class _SolutionScreenState extends State<SolutionScreen> {
   TextEditingController _textEditingController = TextEditingController();
   int _current = 0;
   final List<String> imgList = [
-    'https://admin.klickwash.net/assets/img/logo1.png',
-    'https://admin.klickwash.net/assets/img/logo1.png',
-    'https://admin.klickwash.net/assets/img/logo1.png'
+      'assets/images/image 7.png',
+     'assets/images/image 7.png',
+      'assets/images/image 7.png',
   ];
   @override
   Widget build(BuildContext context) {
@@ -135,10 +135,10 @@ class _SolutionScreenState extends State<SolutionScreen> {
                                   decoration: BoxDecoration(
                                     color: Colors.grey[200],
                                   ),
-                                  child: CachedNetworkImage(
-                                    imageUrl: i,
-                                    fit: BoxFit.cover,
-                                  ),
+                                    child: Image.asset(
+                                i, // Assuming 'i' contains the asset path, e.g., 'assets/image.png'
+                                fit: BoxFit.cover,
+                              ),
                                 );
                               },
                             );

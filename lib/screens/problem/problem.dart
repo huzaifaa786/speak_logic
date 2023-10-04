@@ -15,9 +15,9 @@ class ProblemScreen extends StatefulWidget {
 class _ProblemScreenState extends State<ProblemScreen> {
   TextEditingController _textEditingController = TextEditingController();
   final List<String> imgList = [
-    'https://admin.klickwash.net/assets/img/logo1.png',
-    'https://admin.klickwash.net/assets/img/logo1.png',
-    'https://admin.klickwash.net/assets/img/logo1.png'
+    'assets/images/image 7.png',
+    'assets/images/image 7.png',
+    'assets/images/image 7.png',
   ];
   final List<String> dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
   int _current = 0;
@@ -135,8 +135,8 @@ class _ProblemScreenState extends State<ProblemScreen> {
                                     decoration: BoxDecoration(
                                       color: Colors.grey[200],
                                     ),
-                                    child: CachedNetworkImage(
-                                      imageUrl: i,
+                                    child: Image.asset(
+                                      i, // Assuming 'i' contains the asset path, e.g., 'assets/image.png'
                                       fit: BoxFit.cover,
                                     ),
                                   );

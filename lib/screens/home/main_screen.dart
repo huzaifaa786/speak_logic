@@ -32,9 +32,9 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final List<String> dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
     final List<String> imgList = [
-      'https://admin.klickwash.net/assets/img/logo1.png',
-      'https://admin.klickwash.net/assets/img/logo1.png',
-      'https://admin.klickwash.net/assets/img/logo1.png'
+      'assets/images/image 7.png',
+      'assets/images/image 7.png',
+      'assets/images/image 7.png',
     ];
     return Scaffold(
       body: SafeArea(
@@ -208,8 +208,8 @@ class _MainScreenState extends State<MainScreen> {
                                         decoration: BoxDecoration(
                                           color: Colors.grey[200],
                                         ),
-                                        child: CachedNetworkImage(
-                                          imageUrl: i,
+                                        child: Image.asset(
+                                          i, // Assuming 'i' contains the asset path, e.g., 'assets/image.png'
                                           fit: BoxFit.cover,
                                         ),
                                       );
@@ -275,8 +275,7 @@ class _MainScreenState extends State<MainScreen> {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
                               return Center(
-                                child:
-                                    CircularProgressIndicator(), 
+                                child: CircularProgressIndicator(),
                               );
                             } else if (snapshot.hasError) {
                               return Center(

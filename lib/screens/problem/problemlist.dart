@@ -18,9 +18,9 @@ class Problemlist extends StatefulWidget {
 
 class _ProblemlistState extends State<Problemlist> {
   final List<String> imgList = [
-    'https://admin.klickwash.net/assets/img/logo1.png',
-    'https://admin.klickwash.net/assets/img/logo1.png',
-    'https://admin.klickwash.net/assets/img/logo1.png'
+    'assets/images/image 7.png',
+    'assets/images/image 7.png',
+    'assets/images/image 7.png',
   ];
   int _current = 0;
   TextEditingController _textEditingController = TextEditingController();
@@ -133,8 +133,8 @@ class _ProblemlistState extends State<Problemlist> {
                                     decoration: BoxDecoration(
                                       color: Colors.grey[200],
                                     ),
-                                    child: CachedNetworkImage(
-                                      imageUrl: i,
+                                    child: Image.asset(
+                                      i, // Assuming 'i' contains the asset path, e.g., 'assets/image.png'
                                       fit: BoxFit.cover,
                                     ),
                                   );
