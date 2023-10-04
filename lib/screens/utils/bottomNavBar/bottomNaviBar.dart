@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, unused_field, unused_element
 
 import 'package:books/screens/problem/problem.dart';
+import 'package:books/screens/problem/problemlist.dart';
+import 'package:books/screens/solution/soutionlist.dart';
 import 'package:books/screens/utils/drawer/drawer.dart';
 import 'package:books/screens/Books/books_screen.dart';
 import 'package:books/screens/home/main_screen.dart';
@@ -54,8 +56,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
   Widget build(BuildContext context) {
     var _fragments = [
       const MainScreen(),
-      const ProblemScreen(),
-      const SolutionScreen(),
+      const Problemlist(),
+      const Solutionlist(),
       const BooksScreen(),
       const MainScreen(),
     ];

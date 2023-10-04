@@ -48,9 +48,9 @@ class _MyAppState extends State<MyApp> {
         'problemlist': (context) => const Problemlist(),
         'searchbook': (context) => const SearchBook(),
         'solutionlist': (context) => const Solutionlist(),
-         'video': (context) => const VideoScreen(),
-         'forum': (context) => const ForumScreen(),
-          'Annousment': (context) => const Announcements(),
+        'video': (context) => const VideoScreen(),
+        'forum': (context) => const ForumScreen(),
+        'Annousment': (context) => const Announcements(),
       },
     );
   }
