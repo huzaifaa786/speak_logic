@@ -14,6 +14,8 @@ class ContactScreen extends StatefulWidget {
 class _ContactScreenState extends State<ContactScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController subjectController = TextEditingController();
+  TextEditingController messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +141,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 child: Container(
                   height: 43,
                   child: TextField(
-                    controller: nameController,
+                    controller: subjectController,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -184,7 +186,7 @@ class _ContactScreenState extends State<ContactScreen> {
                     expands: true,
                     maxLines: null,
                     keyboardType: TextInputType.multiline,
-                    controller: nameController,
+                    controller: messageController,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
