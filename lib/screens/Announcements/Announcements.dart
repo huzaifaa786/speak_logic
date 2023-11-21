@@ -1,3 +1,4 @@
+import 'package:books/screens/utils/drawer/drawer.dart';
 import 'package:books/static/announcement.dart';
 import 'package:books/static/button.dart';
 import 'package:books/static/heading.dart';
@@ -17,6 +18,12 @@ class _AnnouncementsState extends State<Announcements> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
+        drawer: Drawer(
+          child: SideDrawer(), // Use your custom drawer content widget here
+        ),
       body: SafeArea(
           child: Column(
         children: [

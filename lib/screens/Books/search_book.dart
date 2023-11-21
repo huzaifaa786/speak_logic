@@ -19,7 +19,7 @@ class _SearchBookState extends State<SearchBook> {
             child: SingleChildScrollView(
       child: Column(children: [
         Container(
-            height: MediaQuery.of(context).size.height * 0.20,
+            height: MediaQuery.of(context).size.height * 0.22,
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.only(right: 20, left: 20),
             decoration: BoxDecoration(color: mainColor),

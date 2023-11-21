@@ -1,13 +1,25 @@
-class DataModel {
-  final String name;
-  final String image;
 
-  DataModel({required this.name, required this.image});
 
-  factory DataModel.fromJson(Map<String, dynamic> json) {
-    return DataModel(
-      name: json['name'],
-      image: json['image'],
-    );
+class Book {
+  int? id;
+  String? name;
+  String? image;
+  String? Pdf;
+  String? image2;
+  String? epub;
+  String? type;
+  int? pdf_download;
+
+
+
+  Book(book) {
+    id = book['id'];
+    name = book['name'];
+    image = book['image'];
+    Pdf = book['pdf'];
+    image2 = book['image2'];
+    epub = book['epub'];
+    type = book['type'];
+    pdf_download = book['pdf_download'];
   }
 }

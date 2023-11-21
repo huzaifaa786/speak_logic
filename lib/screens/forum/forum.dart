@@ -1,3 +1,4 @@
+import 'package:books/screens/utils/drawer/drawer.dart';
 import 'package:books/static/heading.dart';
 import 'package:books/static/problembox.dart';
 import 'package:books/static/videobox.dart';
@@ -25,7 +26,15 @@ class _ForumScreenState extends State<ForumScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
+        drawer: Drawer(
+          child: SideDrawer(), // Use your custom drawer content widget here
+        ),
       body: SafeArea(
+
+        
           child: SingleChildScrollView(
         child: Column(
           children: [
