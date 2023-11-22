@@ -54,7 +54,7 @@ class ProBox extends StatelessWidget {
                 fontSize: 20, color: color, fontWeight: FontWeight.w500),
           ),
           Text(
-            description,
+            'description',
             maxLines: 6,
             overflow: TextOverflow.ellipsis,
           ),
