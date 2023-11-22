@@ -10,6 +10,7 @@ class BookController extends GetxController {
   static BookController instance = Get.find();
 
  List<Book> books = [];
+  List<Book> Searchbooks = [];
   getbook() async {
     LoadingHelper.show();
     var url = 'https://demo.cashwecan.com/api/books';
@@ -23,9 +24,21 @@ class BookController extends GetxController {
         book.add(Book(van));
       }
       books = book;
+      Searchbooks = books;
       LoadingHelper.dismiss();
       print(books);
       update();
 
+  }
+   void searchBooks(String query) {
+    if (query == '') {
+      Searchbooks = books;
+    } else {
+      Searchbooks = books
+          .where((o) =>
+              o.name!.toString().toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    }
+    update();
   }
 }

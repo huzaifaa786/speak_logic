@@ -78,6 +78,7 @@ class _BooksScreenState extends State<BooksScreen> {
                                 bottomLeft: Radius.circular(10.0),
                               ),
                               child: TextField(
+                                onChanged: controller.searchBooks,
                                 controller: _textEditingController,
                                 decoration: InputDecoration(
                                   hintText: 'Search Here',
@@ -105,8 +106,11 @@ class _BooksScreenState extends State<BooksScreen> {
                             child: IconButton(
                               icon: Icon(Icons.search),
                               onPressed: () {
-                                // Perform the action when the button is pressed
                                 String searchText = _textEditingController.text;
+                                controller.searchBooks(searchText);
+                                print('Search: $searchText');
+                                // Perform the action when the button is pressed
+
                                 print('Search: $searchText');
 
                                 Navigator.push(
@@ -154,9 +158,9 @@ class _BooksScreenState extends State<BooksScreen> {
                             childAspectRatio: 0.63,
                             crossAxisSpacing: 12,
                             mainAxisSpacing: 12),
-                    itemCount: controller.books.length,
+                    itemCount: controller.Searchbooks.length,
                     itemBuilder: (context, index) {
-                      final item = controller.books[index];
+                      final item = controller.Searchbooks[index];
                       return Stack(
                         children: [
                           Container(
@@ -168,7 +172,7 @@ class _BooksScreenState extends State<BooksScreen> {
                             child: Wrap(
                               children: [
                                 SvgPicture.network(
-                                  Image_URL + controller.books[index].image!,
+                                  Image_URL + controller.Searchbooks[index].image!,
                                   height: 160,
                                   fit: BoxFit.cover,
                                   placeholderBuilder: (BuildContext context) =>
@@ -181,7 +185,7 @@ class _BooksScreenState extends State<BooksScreen> {
                                   padding:
                                       const EdgeInsets.only(top: 2, bottom: 2),
                                   child: Text(
-                                    controller.books[index].name!,
+                                    controller.Searchbooks[index].name!,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(

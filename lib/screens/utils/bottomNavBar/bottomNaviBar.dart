@@ -90,7 +90,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
                     child: Material(
                       color: Color(4278231372),
                       child: Center(
-                        child: GestureDetector(
+                        child: InkWell(
                           onTap: () {
                             setState(() {
                               _navigationMenuIndex = 0;
@@ -124,7 +124,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
                     child: Material(
                       color: Color(4278231372),
                       child: Center(
-                        child: GestureDetector(
+                        child: InkWell(
                           onTap: () {
                             setState(() {
                               _navigationMenuIndex = 1;
@@ -159,7 +159,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
                     child: Material(
                       color: Color(4278231372),
                       child: Center(
-                        child: GestureDetector(
+                        child: InkWell(
                           onTap: () {
                             setState(() {
                               _navigationMenuIndex = 2;
@@ -194,7 +194,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
                     child: Material(
                       color: Color(4278231372),
                       child: Center(
-                        child: GestureDetector(
+                        child: InkWell(
                           onTap: () {
                             setState(() {
                               _navigationMenuIndex = 3;
@@ -228,7 +228,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
                     child: Material(
                       color: Color(4278231372),
                       child: Center(
-                        child: GestureDetector(
+                        child: InkWell(
                           onTap: () {
                             setState(() {
                               _navigationMenuIndex = 4;
