@@ -8,11 +8,15 @@ class VideoBox extends StatelessWidget {
       {Key? key,
       this.button,
       this.text,
+      this.onPressed,
+      this.title,
       this.rounded = false,
       this.color = mainColor})
       : super(key: key);
 
   final color;
+  final onPressed;
+  final title;
   final button;
   final text;
   final rounded;
@@ -20,7 +24,7 @@ class VideoBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         color: Color(0xFFffffff),
         boxShadow: [
           BoxShadow(
@@ -34,27 +38,37 @@ class VideoBox extends StatelessWidget {
           )
         ],
       ),
-      height: MediaQuery.of(context).size.height * 0.29,
+      height: MediaQuery.of(context).size.height * 0.32,
       width: MediaQuery.of(context).size.width * 0.45,
       padding: EdgeInsets.only(right: 20, left: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Text(
             text,
-            style: TextStyle(fontSize: 15, color: Colors.black,fontWeight: FontWeight.w500),
+            style: TextStyle(
+                fontSize: 15, color: Colors.black, fontWeight: FontWeight.w500),
           ),
-          SizedBox(height: 10,),
-          Text(
-            'It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication',
-            maxLines: 9,
-            overflow: TextOverflow.ellipsis,
+          SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            onTap: onPressed,
+            child: Text(
+              title,
+              maxLines: 9,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                decoration: TextDecoration.underline,
+              ),
+            ),
           ),
           SizedBox(
             height: 12,
           ),
-         
         ],
       ),
     );

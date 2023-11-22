@@ -119,41 +119,6 @@ class _MainScreenState extends State<MainScreen> {
                           ),
                           child: Row(
                             children: [
-                              Container(
-                                height: 55,
-                                // width: 55,
-                                decoration: BoxDecoration(
-                                  color:
-                                      mainColor, // Set the background color to green
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10.0),
-                                    bottomLeft: Radius.circular(10.0),
-                                  ),
-                                ),
-                                child: DropdownButton<String>(
-                                  value: dropdownItems[
-                                      0], // Set the initial selected value
-                                  onChanged: (String? newValue) {
-                                    // Handle the dropdown selection
-                                    print('Selected: $newValue');
-                                  },
-                                  iconSize: 1,
-                                  iconEnabledColor: white,
-                                  iconDisabledColor: white,
-                                  items: dropdownItems.map((String item) {
-                                    return DropdownMenuItem<String>(
-                                      value: item,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          item,
-                                          style: TextStyle(color: white),
-                                        ),
-                                      ),
-                                    );
-                                  }).toList(),
-                                ),
-                              ),
                               Expanded(
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.only(
@@ -161,6 +126,7 @@ class _MainScreenState extends State<MainScreen> {
                                     bottomLeft: Radius.circular(10.0),
                                   ),
                                   child: TextField(
+                                    onChanged: controller.searchBooks,
                                     controller: _textEditingController,
                                     decoration: InputDecoration(
                                       hintText: 'Search Here',
@@ -168,8 +134,7 @@ class _MainScreenState extends State<MainScreen> {
                                       hintStyle: TextStyle(
                                           fontSize: 13,
                                           fontWeight: FontWeight.w400),
-                                      contentPadding:
-                                          EdgeInsets.only(left: 20, bottom: 6),
+                                      contentPadding: EdgeInsets.only(left: 20),
                                     ),
                                   ),
                                 ),
@@ -178,7 +143,8 @@ class _MainScreenState extends State<MainScreen> {
                                 height: 55,
                                 width: 55,
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 2, 139, 66),
+                                  color:
+                                      const Color.fromARGB(255, 220, 214, 214),
                                   borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(10.0),
                                     bottomRight: Radius.circular(10.0),
@@ -187,11 +153,12 @@ class _MainScreenState extends State<MainScreen> {
                                   ),
                                 ),
                                 child: IconButton(
-                                  icon: Icon(Icons.search, color: white),
+                                  icon: Icon(Icons.search),
                                   onPressed: () {
                                     // Perform the action when the button is pressed
                                     String searchText =
                                         _textEditingController.text;
+                                    controller.searchBooks(searchText);
                                     print('Search: $searchText');
                                   },
                                 ),
@@ -319,9 +286,9 @@ class _MainScreenState extends State<MainScreen> {
                                     childAspectRatio: 0.63,
                                     crossAxisSpacing: 20,
                                     mainAxisSpacing: 20),
-                            itemCount: controller.books.length,
+                            itemCount: controller.Searchbooks.length,
                             itemBuilder: (context, index) {
-                              final item = controller.books[index];
+                              // final item = controller.Searchbooks[index];
                               return Stack(
                                 children: [
                                   Container(
@@ -334,7 +301,8 @@ class _MainScreenState extends State<MainScreen> {
                                       children: [
                                         SvgPicture.network(
                                           Image_URL +
-                                              controller.books[index].image!,
+                                              controller
+                                                  .Searchbooks[index].image!,
                                           height: 160,
                                           fit: BoxFit.cover,
                                           placeholderBuilder: (BuildContext
@@ -347,7 +315,7 @@ class _MainScreenState extends State<MainScreen> {
                                         ),
                                         // CachedNetworkImage(
                                         //   imageUrl: Image_URL +
-                                        //       controller.books[index].image!,
+                                        //       controller.Searchbooks[index].image!,
                                         //   height: 160,
                                         //   fit: BoxFit.cover,
                                         // ),
@@ -355,7 +323,7 @@ class _MainScreenState extends State<MainScreen> {
                                           padding: const EdgeInsets.only(
                                               top: 4.0, bottom: 6),
                                           child: Text(
-                                            controller.books[index].name!,
+                                            controller.Searchbooks[index].name!,
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
@@ -366,15 +334,21 @@ class _MainScreenState extends State<MainScreen> {
                                         Row(
                                           children: [
                                             GestureDetector(
-                                              onTap: (){
-                                                Get.to(() => PDFScreen(path: '${BASEURL}' + controller
-                                                      .books[index].pdf!,));
+                                              onTap: () {
+                                                Get.to(() => PDFScreen(
+                                                      path: '${BASEURL}' +
+                                                          controller
+                                                              .Searchbooks[
+                                                                  index]
+                                                              .pdf!,
+                                                    ));
                                               },
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                     color: mainColor,
                                                     borderRadius:
-                                                        BorderRadius.circular(4)),
+                                                        BorderRadius.circular(
+                                                            4)),
                                                 padding: EdgeInsets.only(
                                                     left: 4,
                                                     right: 4,
@@ -384,7 +358,8 @@ class _MainScreenState extends State<MainScreen> {
                                                   'Pdf',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: FontWeight.w400,
+                                                      fontWeight:
+                                                          FontWeight.w400,
                                                       color: white),
                                                 ),
                                               ),
@@ -462,7 +437,8 @@ class _MainScreenState extends State<MainScreen> {
                                                 bottomRight:
                                                     Radius.circular(5))),
                                         child: Text(
-                                          controller.books[index].pdf_download
+                                          controller
+                                              .Searchbooks[index].pdf_download
                                               .toString(),
                                           style: TextStyle(
                                               fontSize: 10,

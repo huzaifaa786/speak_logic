@@ -10,8 +10,10 @@ import 'package:books/screens/forum/forum.dart';
 import 'package:books/screens/home/homecontroller.dart';
 import 'package:books/screens/home/main_screen.dart';
 import 'package:books/screens/problem/problem.dart';
+import 'package:books/screens/problem/problemcontroller.dart';
 import 'package:books/screens/problem/problemlist.dart';
 import 'package:books/screens/software/softwarecontroller.dart';
+import 'package:books/screens/solution/solutioncontroller.dart';
 import 'package:books/screens/solution/soutionlist.dart';
 import 'package:books/screens/utils/bottomNavBar/bottomNaviBar.dart';
 import 'package:books/screens/video/video.dart';
@@ -30,6 +32,8 @@ void main() async {
   Get.put(VideoController());
   Get.put(SoftwareController());
   Get.put(HomeController());
+  Get.put(SolutionController());
+  Get.put(ProblemController());
 
   await GetStorage.init();
 
@@ -51,7 +55,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-         builder: EasyLoading.init(),
+      builder: EasyLoading.init(),
       theme: ThemeData(
         appBarTheme: AppBarTheme(backgroundColor: mainColor),
         fontFamily: 'Inter',
@@ -69,7 +73,7 @@ class _MyAppState extends State<MyApp> {
         'problem': (context) => const ProblemScreen(),
         'problemlist': (context) => const Problemlist(),
         'searchbook': (context) => const SearchBook(),
-        'solutionlist': (context) => const Solutionlist(),
+        // 'solutionlist': (context) => const Solutionlist(),
         'video': (context) => const VideoScreen(),
         'forum': (context) => const ForumScreen(),
         'Annousment': (context) => const Announcements(),

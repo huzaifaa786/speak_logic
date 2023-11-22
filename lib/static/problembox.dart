@@ -9,6 +9,7 @@ class ProBox extends StatelessWidget {
       {Key? key,
       this.button,
       this.text,
+      this.description,
       this.rounded = false,
       this.color,
       this.onPressed})
@@ -16,6 +17,7 @@ class ProBox extends StatelessWidget {
 
   final color;
   final button;
+  final description;
   final text;
   final rounded;
   final onPressed;
@@ -52,7 +54,7 @@ class ProBox extends StatelessWidget {
                 fontSize: 20, color: color, fontWeight: FontWeight.w500),
           ),
           Text(
-            'It is impossible to learn proper communication without being aware of the principle of communication. That is why it is important to learn the principle of communication',
+            description,
             maxLines: 6,
             overflow: TextOverflow.ellipsis,
           ),

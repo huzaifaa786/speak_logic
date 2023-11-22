@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:lecle_yoyo_player/lecle_yoyo_player.dart';
 
 class VideoPlay extends StatefulWidget {
-  const VideoPlay({Key? key});
-
+  const VideoPlay({super.key, required this.link});
+ final String? link;
   @override
   State<VideoPlay> createState() => _VideoPlayState();
 }
@@ -17,28 +17,30 @@ class _VideoPlayState extends State<VideoPlay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.black,
       body: SafeArea(
         child: Center(
           child: YoYoPlayer(
             aspectRatio: 16 / 9,
-            url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+            url: widget.link.toString(),
             videoStyle: VideoStyle(
               qualityStyle: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Colors.black,
               ),
               forwardAndBackwardBtSize: 30.0,
               playButtonIconSize: 40.0,
+              forwardIconColor: Colors.black,
               playIcon: Icon(
                 Icons.play_arrow,
                 size: 40.0,
-                color: Colors.white,
+                color: Colors.black,
               ),
               pauseIcon: Icon(
                 Icons.pause,
                 size: 40.0,
-                color: Colors.white,
+                color: Colors.black,
               ),
               videoQualityPadding: EdgeInsets.all(5.0),
             ),
@@ -59,6 +61,8 @@ class _VideoPlayState extends State<VideoPlay> {
             onCacheFileFailed: (error) {
               print('Cache file error ::: $error');
             },
+
+            // videoPlayerOptions: v,
             onFullScreen: (value) {
               // Handle fullscreen changes if needed
             },

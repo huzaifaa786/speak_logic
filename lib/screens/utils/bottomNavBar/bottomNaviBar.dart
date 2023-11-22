@@ -56,8 +56,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> with RouteAware {
   Widget build(BuildContext context) {
     var _fragments = [
       const MainScreen(),
-      const Problemlist(),
-      const Solutionlist(),
+      const ProblemScreen(),
+      const SolutionScreen(),
       const BooksScreen(),
       const MainScreen(),
     ];
