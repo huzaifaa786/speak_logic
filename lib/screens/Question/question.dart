@@ -1,3 +1,4 @@
+import 'package:books/models/question_model.dart';
 import 'package:books/screens/Question/questioncontroller.dart';
 import 'package:books/screens/utils/drawer/drawer.dart';
 import 'package:books/static/question%20container.dart';
@@ -16,14 +17,14 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionScreenState extends State<QuestionScreen> {
   TextEditingController _textEditingController = TextEditingController();
- fetchBooks() async {
+ fetchQuestions() async {
     await questionContainer.getquestion();
     setState(() {});
   }
 
   @override
   void initState() {
-    fetchBooks();
+    fetchQuestions();
     super.initState();
   }
   @override
@@ -179,31 +180,21 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       ]),
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-                child: Questioncontainer(),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-                child: Questioncontainer(),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-                child: Questioncontainer(),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-                child: Questioncontainer(),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 20,),
-                child: Questioncontainer(),
-              ),
+             Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+               child: ListView.builder(
+               itemCount: controller.questions.length,
+               itemBuilder: (context, index) {
+                 Question question = controller.questions[index];
+             
+                 return Padding(
+                   padding: const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+                   child: QuestionContainer(question: question),
+                 );
+               },
+             ),
+             ),
+
               Padding(
                 padding:
                     const EdgeInsets.only(left: 20, right: 20, ),

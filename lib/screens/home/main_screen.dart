@@ -2,8 +2,10 @@
 
 import 'dart:convert';
 
+import 'package:books/helpers/utils.dart';
 import 'package:books/models/books_model.dart';
 import 'package:books/screens/home/homecontroller.dart';
+import 'package:books/screens/pdf/pdf_view.dart';
 import 'package:books/screens/utils/drawer/drawer.dart';
 import 'package:books/values/colors.dart';
 import 'package:books/values/controller.dart';
@@ -363,22 +365,28 @@ class _MainScreenState extends State<MainScreen> {
                                         ),
                                         Row(
                                           children: [
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                  color: mainColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(4)),
-                                              padding: EdgeInsets.only(
-                                                  left: 4,
-                                                  right: 4,
-                                                  top: 2,
-                                                  bottom: 4),
-                                              child: Text(
-                                                'Pdf',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: white),
+                                            GestureDetector(
+                                              onTap: (){
+                                                Get.to(() => PDFScreen(path: '${BASEURL}' + controller
+                                                      .books[index].pdf!,));
+                                              },
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: mainColor,
+                                                    borderRadius:
+                                                        BorderRadius.circular(4)),
+                                                padding: EdgeInsets.only(
+                                                    left: 4,
+                                                    right: 4,
+                                                    top: 2,
+                                                    bottom: 4),
+                                                child: Text(
+                                                  'Pdf',
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w400,
+                                                      color: white),
+                                                ),
                                               ),
                                             ),
                                             Container(

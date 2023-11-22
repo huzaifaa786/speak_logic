@@ -13,6 +13,7 @@ import 'package:books/screens/problem/problem.dart';
 import 'package:books/screens/problem/problemlist.dart';
 import 'package:books/screens/software/softwarecontroller.dart';
 import 'package:books/screens/solution/soutionlist.dart';
+import 'package:books/screens/utils/bottomNavBar/bottomNaviBar.dart';
 import 'package:books/screens/video/video.dart';
 import 'package:books/screens/video/videocontroller.dart';
 import 'package:books/values/colors.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
          builder: EasyLoading.init(),
       theme: ThemeData(
@@ -58,12 +59,13 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       title: "Speak Logic",
-      initialRoute: 'login',
+      initialRoute: 'bottomNav',
       routes: {
         'login': (context) => const LoginScreen(),
         'register': (context) => const RegisterScreen(),
         'mainscreen': (context) => const MainScreen(),
         'homescreen': (context) => const BooksScreen(),
+        'bottomNav': (context) => const BottomNavScreen(),
         'problem': (context) => const ProblemScreen(),
         'problemlist': (context) => const Problemlist(),
         'searchbook': (context) => const SearchBook(),

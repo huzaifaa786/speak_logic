@@ -1,11 +1,11 @@
 class Question {
   int? id;
-  String? question;
+  String? mquestion;
   String? answer;
 
   Question(question) {
     id = question['id'];
-    question = question['question'];
+    mquestion = question['question'];
     answer = question['answer'];
   }
 }

@@ -4,7 +4,7 @@ class Book {
   int? id;
   String? name;
   String? image;
-  String? Pdf;
+  String? pdf;
   String? image2;
   String? epub;
   String? type;
@@ -16,7 +16,7 @@ class Book {
     id = book['id'];
     name = book['name'];
     image = book['image'];
-    Pdf = book['pdf'];
+    pdf = book['pdf'];
     image2 = book['image2'];
     epub = book['epub'];
     type = book['type'];

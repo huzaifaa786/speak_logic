@@ -6,7 +6,7 @@ import 'package:get/state_manager.dart';
 
 class QuestionController extends GetxController {
   static QuestionController instance = Get.find();
- List<Question> books = [];
+ List<Question> questions = [];
   getquestion() async {
     LoadingHelper.show();
     var url = 'https://demo.cashwecan.com/api/questions';
@@ -15,13 +15,12 @@ class QuestionController extends GetxController {
     // print(data);
     var response = await Api.execute(url: url);
 
-      List<Question> question = <Question>[];
+      List<Question> mquestions = <Question>[];
       for (var van in response['questions']) {
-        question.add(Question(van));
+        mquestions.add(Question(van));
       }
-      books = question;
+      questions = mquestions;
       LoadingHelper.dismiss();
-      print(books);
       update();
 
   }
