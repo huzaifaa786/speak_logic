@@ -1,4 +1,7 @@
+
 import 'dart:convert';
+import 'dart:developer';
+
 import 'package:books/helpers/loading.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +14,9 @@ class Api {
       var result;
 
       Dio dio = Dio();
-
+      log(url.toString());
       result = await dio.get(url);
-      print(result);
-      print('object');
+      
       var response = jsonDecode(result.toString());
 
       return response;

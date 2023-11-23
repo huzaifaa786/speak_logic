@@ -8,6 +8,7 @@ import 'package:books/screens/support/support.dart';
 import 'package:books/screens/video/video.dart';
 import 'package:books/values/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SideDrawer extends StatelessWidget {
   const SideDrawer({super.key});
@@ -25,11 +26,16 @@ class SideDrawer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Icon(
-                    Icons.cancel,
-                    color: white,
+                GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Icon(
+                      Icons.cancel,
+                      color: white,
+                    ),
                   ),
                 ),
                 Padding(
@@ -117,10 +123,11 @@ class SideDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: InkWell(   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ForumScreen()));
-                  },
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ForumScreen()));
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -250,23 +257,6 @@ class SideDrawer extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.logout,
-                    ),
-                    Text(' Log out'),
-                  ],
-                ),
-                Icon(Icons.keyboard_arrow_right),
-              ],
-            ),
-          )
         ]),
       ),
     );

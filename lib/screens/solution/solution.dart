@@ -1,8 +1,5 @@
-import 'package:books/screens/solution/solutioncontroller.dart';
-import 'package:books/screens/utils/drawer/drawer.dart';
+import 'package:books/screens/home/globalcontroller.dart';
 import 'package:books/values/colors.dart';
-import 'package:books/values/controller.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -19,25 +16,18 @@ class _SolutionScreenState extends State<SolutionScreen> {
   TextEditingController _textEditingController = TextEditingController();
   int _current = 0;
   final List<String> imgList = [
-    'assets/images/image 7.png',
-    'assets/images/image 7.png',
-    'assets/images/image 7.png',
+    'assets/images/Solution/image4 44.jpg',
+    'assets/images/Solution/image9-e.jpg',
+    'assets/images/Solution/IMG3_V3.jpg',
+    'assets/images/Solution/IMG4_V3.jpg',
+    'assets/images/Solution/IMG6_V3.jpg',
+    'assets/images/Solution/P1_C2_V3.jpg',
+    'assets/images/Solution/P2_C4_V3.jpg',
   ];
-
-  fetchsoftware() async {
-    await solutionController.getsolution();
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    fetchsoftware();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SolutionController>(
+    return GetBuilder<GlobalController>(
         builder: (controller) => Scaffold(
             
               body: SafeArea(
@@ -110,9 +100,9 @@ class _SolutionScreenState extends State<SolutionScreen> {
                                     ),
                                     Positioned(
                                       bottom: 24,
-                                      right: 115,
+                                      right: 25,
                                       child: CarouselIndicator(
-                                        count: 3,
+                                        count: 7,
                                         index: _current,
                                         activeColor: mainColor,
                                         color: Colors.white60,
@@ -122,26 +112,26 @@ class _SolutionScreenState extends State<SolutionScreen> {
                                   ],
                                 ),
                               ),
-                              controller.solutions.isNotEmpty
+                              controller.appConfig.isNotEmpty
                                   ? Text(
-                                      controller.solutions[0].name.toString())
+                                      controller.appConfig[0].value.toString())
                                   : SizedBox(),
-                              if (controller.solutions.isNotEmpty)
+                              if (controller.appConfig.isNotEmpty)
                                 Padding(
                                   padding:
                                       const EdgeInsets.only(top: 8, bottom: 8),
                                   child: Text(
-                                      controller.solutions[14].name.toString(),
+                                      controller.appConfig[14].name.toString(),
                                       style: TextStyle(
                                           fontSize: 24,
                                           fontWeight: FontWeight.w500,
                                           color: mainColor)),
                                 ),
-                                 if (controller.solutions.isNotEmpty)
+                                 if (controller.appConfig.isNotEmpty)
                               Padding(
                                 padding: const EdgeInsets.only(right: 30),
                                 child: Text(
-                                    controller.solutions[14].description
+                                    controller.appConfig[14].description
                                         .toString(),
                                     textAlign: TextAlign.justify,
                                     style: TextStyle(

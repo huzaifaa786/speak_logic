@@ -1,20 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:convert';
-
 import 'package:books/helpers/utils.dart';
-import 'package:books/models/books_model.dart';
+import 'package:books/static/bookBox.dart';
+import 'package:books/static/bookox.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:books/screens/home/homecontroller.dart';
 import 'package:books/screens/pdf/pdf_view.dart';
-import 'package:books/screens/utils/drawer/drawer.dart';
+import 'package:books/static/svgImageLoader.dart';
 import 'package:books/values/colors.dart';
 import 'package:books/values/controller.dart';
-import 'package:books/values/string.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
 
@@ -28,15 +24,14 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   TextEditingController _textEditingController = TextEditingController();
   int _current = 0;
-  var i;
-  // Future<List<DataModel>> loadJsonData() async {
-  //   final String jsonString = await rootBundle.loadString('assets/data.json');
-  //   final List<dynamic> jsonData = json.decode(jsonString);
-  //   return jsonData.map((json) => DataModel.fromJson(json)).toList();
-  // }
 
   fetchBooks() async {
-    await homeController.getbook();
+    if (homeController.Searchbooks.isEmpty)
+      await homeController.getbook();
+
+    if(globalController.appConfig.isEmpty)
+      await globalController.getData();
+
     setState(() {});
   }
 
@@ -50,9 +45,9 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final List<String> dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
     final List<String> imgList = [
-      'assets/images/image 7.png',
-      'assets/images/image 7.png',
-      'assets/images/image 7.png',
+      'assets/images/Home/image 2.jpg',
+      'assets/images/Home/image9-e.jpg',
+      'assets/images/Home/IMG7_V3.jpg',
     ];
     return Scaffold(
       body: SafeArea(
@@ -181,7 +176,7 @@ class _MainScreenState extends State<MainScreen> {
                                     enlargeCenterPage: false,
                                     onPageChanged: (index, reason) {
                                       setState(() {
-                                        // _current = index;
+                                        _current = index;
                                       });
                                     },
                                   ),
@@ -218,8 +213,9 @@ class _MainScreenState extends State<MainScreen> {
                             ],
                           ),
                         ),
+                        if(globalController.appConfig.isNotEmpty)
                         Text(
-                          'Lorem ipsum dolor sit amet, et enim tantas senserit his. No est utroque copiosae voluptatum, ad posse vituperatoribus eam, ex mel sint viris aliquam. An eos aliquip eloquentiam, tritani fabellas mea eu. Fugit consequat conclusionemque vix id, nec ea denique delicatissimi. Usu labore voluptatum in. Erat voluptua mea ne, cotidieque interpretaris vim in. Eu mei alia urbanitas posidonium. In vis graeco causae dissentiet, id sententiae appellantur repudiandae cum.',
+                          globalController.appConfig[12].description!,
                           maxLines: 6,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.justify,
@@ -252,328 +248,23 @@ class _MainScreenState extends State<MainScreen> {
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.w700),
                         ),
-                        if (controller.Searchbooks.isNotEmpty)
-                          for (i = 0;
-                              i <= controller.Searchbooks.length;
-                              i = i + 2)
-                            Padding(
-                              padding: const EdgeInsets.only(bottom:8.0),
-                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
-                                Stack(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          border: Border.all(color: mainColor),
-                                          borderRadius: BorderRadius.circular(5)),
-                                      // height: 300,
-                                        width: MediaQuery.of(context).size.width*0.4,
-                            
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                                'assets/images/book.svg',
-                                            height: 160,
-                                            fit: BoxFit.cover,
-                                            placeholderBuilder: (BuildContext
-                                                    context) =>
-                                                Container(
-                                                    padding: const EdgeInsets.all(
-                                                        30.0),
-                                                    child:
-                                                        const CircularProgressIndicator()),
-                                          ),
-                                          // CachedNetworkImage(
-                                          //   imageUrl: Image_URL +
-                                          //       controller.Searchbooks[index].image!,
-                                          //   height: 160,
-                                          //   fit: BoxFit.cover,
-                                          // ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 4.0, bottom: 6),
-                                            child: Text(
-                                              controller.Searchbooks[i].name!,
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                          ),
-                                          Row(
-                                            children: [
-                                              GestureDetector(
-                                                onTap: () {
-                                                  Get.to(() => PDFScreen(
-                                                            path:
-                                                                'https://demo.cashwecan.com/uploaded_files/pdf/sample-pdf.pdf',
-                                                          ));
-                                                },
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                      color: mainColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4)),
-                                                  padding: EdgeInsets.only(
-                                                      left: 4,
-                                                      right: 4,
-                                                      top: 2,
-                                                      bottom: 4),
-                                                  child: Text(
-                                                    'Pdf',
-                                                    style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: white),
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                  margin: EdgeInsets.only(
-                                                      left: 1.5, right: 1.5),
-                                                  decoration: BoxDecoration(
-                                                      color: mainColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4)),
-                                                  padding: EdgeInsets.all(4),
-                                                  child: Icon(
-                                                    Icons
-                                                        .download_for_offline_rounded,
-                                                    size: 15,
-                                                    color: white,
-                                                  )),
-                                              Container(
-                                                  decoration: BoxDecoration(
-                                                      color: mainColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4)),
-                                                  padding: EdgeInsets.all(4),
-                                                  child: Icon(
-                                                    Icons.info_outline_rounded,
-                                                    size: 15,
-                                                    color: white,
-                                                  )),
-                                              Container(
-                                                  margin: EdgeInsets.only(
-                                                      left: 1.5, right: 1.5),
-                                                  decoration: BoxDecoration(
-                                                      color: mainColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4)),
-                                                  padding: EdgeInsets.all(4),
-                                                  child: Icon(
-                                                    Icons.search,
-                                                    size: 15,
-                                                    color: white,
-                                                  )),
-                                              Container(
-                                                  decoration: BoxDecoration(
-                                                      color: mainColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4)),
-                                                  padding: EdgeInsets.all(4),
-                                                  child: Icon(
-                                                    Icons.print,
-                                                    size: 15,
-                                                    color: white,
-                                                  )),
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Positioned(
-                                        right: 18,
-                                        child: Container(
-                                          padding: EdgeInsets.only(
-                                              left: 6,
-                                              right: 6,
-                                              bottom: 6,
-                                              top: 8),
-                                          decoration: BoxDecoration(
-                                              color: mainColor,
-                                              borderRadius: BorderRadius.only(
-                                                  bottomLeft: Radius.circular(5),
-                                                  bottomRight:
-                                                      Radius.circular(5))),
-                                          child: Text(
-                                            controller.Searchbooks[i].pdf_download
-                                                .toString(),
-                                            style: TextStyle(
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.w800,
-                                                color: white),
-                                          ),
-                                        ))
-                                  ],
-                                ),
-                                if (i + 1 < controller.Searchbooks.length)
-                                  Stack(
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.all(10),
-                                        decoration: BoxDecoration(
-                                            border: Border.all(color: mainColor),
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        // height: 300,
-                                        width: MediaQuery.of(context).size.width*0.4,
-                                        child: Column(
-                                          children: [
-                                            SvgPicture.asset('assets/images/book.svg',
-                                              height: 160,
-                                              fit: BoxFit.cover,
-                                              placeholderBuilder: (BuildContext
-                                                      context) =>
-                                                  Container(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              30.0),
-                                                      child:
-                                                          const CircularProgressIndicator()),
-                                            ),
-                                            // CachedNetworkImage(
-                                            //   imageUrl: Image_URL +
-                                            //       controller.Searchbooks[index].image!,
-                                            //   height: 160,
-                                            //   fit: BoxFit.cover,
-                                            // ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 4.0, bottom: 6),
-                                              child: Text(
-                                                controller
-                                                    .Searchbooks[i + 1].name!,
-                                                maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: TextStyle(
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.w700),
-                                              ),
-                                            ),
-                                            Row(
-                                              children: [
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    Get.to(() => PDFScreen(
-                                                          path: 'https://demo.cashwecan.com/uploaded_files/pdf/sample-pdf.pdf',
-                                                        ));
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                        color: mainColor,
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                4)),
-                                                    padding: EdgeInsets.only(
-                                                        left: 4,
-                                                        right: 4,
-                                                        top: 2,
-                                                        bottom: 4),
-                                                    child: Text(
-                                                      'Pdf',
-                                                      style: TextStyle(
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          color: white),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: 1.5, right: 1.5),
-                                                    decoration: BoxDecoration(
-                                                        color: mainColor,
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                4)),
-                                                    padding: EdgeInsets.all(4),
-                                                    child: Icon(
-                                                      Icons
-                                                          .download_for_offline_rounded,
-                                                      size: 15,
-                                                      color: white,
-                                                    )),
-                                                Container(
-                                                    decoration: BoxDecoration(
-                                                        color: mainColor,
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                4)),
-                                                    padding: EdgeInsets.all(4),
-                                                    child: Icon(
-                                                      Icons.info_outline_rounded,
-                                                      size: 15,
-                                                      color: white,
-                                                    )),
-                                                Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: 1.5, right: 1.5),
-                                                    decoration: BoxDecoration(
-                                                        color: mainColor,
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                4)),
-                                                    padding: EdgeInsets.all(4),
-                                                    child: Icon(
-                                                      Icons.search,
-                                                      size: 15,
-                                                      color: white,
-                                                    )),
-                                                Container(
-                                                    decoration: BoxDecoration(
-                                                        color: mainColor,
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                4)),
-                                                    padding: EdgeInsets.all(4),
-                                                    child: Icon(
-                                                      Icons.print,
-                                                      size: 15,
-                                                      color: white,
-                                                    )),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Positioned(
-                                          right: 18,
-                                          child: Container(
-                                            padding: EdgeInsets.only(
-                                                left: 6,
-                                                right: 6,
-                                                bottom: 6,
-                                                top: 8),
-                                            decoration: BoxDecoration(
-                                                color: mainColor,
-                                                borderRadius: BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(5),
-                                                    bottomRight:
-                                                        Radius.circular(5))),
-                                            child: Text(
-                                              controller
-                                                  .Searchbooks[i + 1].pdf_download
-                                                  .toString(),
-                                              style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.w800,
-                                                  color: white),
-                                            ),
-                                          ))
-                                    ],
-                                  )
-                              ]),
-                            ),
+                        GridView.builder(
+                           padding: EdgeInsets.all(0),
+                          shrinkWrap: true,
+                          physics: const BouncingScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 3,
+                            mainAxisSpacing: 15,
+                            childAspectRatio: 1.6,
+                          ),
+                          itemCount: controller.Searchbooks.length,
+                          itemBuilder: (context, index) {
+                            // final item = controller.Searchbooks[index];
+                            return BookCard(index: index);
+                          },
+                        ),
                         SizedBox(
                           height: 30,
                         )

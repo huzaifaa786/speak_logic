@@ -48,7 +48,9 @@ dependencies:
   flutter_easyloading: ^3.0.5
   lecle_yoyo_player: ^0.0.8
   syncfusion_flutter_pdfviewer: ^23.2.4
-  flutter_cache_manager: ^3.3.1  
+  flutter_cache_manager: ^3.3.1
+  flutter_downloader: ^1.11.5
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -79,6 +81,14 @@ flutter:
   assets:
     - assets/data.json
     - assets/images/
+    - assets/images/Home/
+    - assets/images/Book/
+    - assets/images/Forum/
+    - assets/images/Question/
+    - assets/images/Software/
+    - assets/images/Solution/
+    - assets/images/Video/
+    - assets/images/Problem/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

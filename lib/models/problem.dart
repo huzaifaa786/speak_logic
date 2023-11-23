@@ -1,13 +1,13 @@
-class Problem {
+class Config {
   int? id;
   String? name;
+  String? value;
   String? description;
 
-  Problem(problem) { 
-    id = problem['id'];
-    print('vvvvvvvvvvvvvvvvvvvvvvvvvvvv');
-    print(problem['name']);
-    name = problem['name'];
-    description = problem['description'];
+  Config(config) { 
+    id = config['id'];
+    name = config['name'];
+    value = config['value'];
+    description = config['description'];
   }
 }

@@ -1,8 +1,6 @@
-import 'package:books/screens/problem/problemcontroller.dart';
-import 'package:books/screens/utils/drawer/drawer.dart';
+import 'package:books/screens/home/globalcontroller.dart';
 import 'package:books/values/colors.dart';
 import 'package:books/values/controller.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -18,27 +16,18 @@ class ProblemScreen extends StatefulWidget {
 class _ProblemScreenState extends State<ProblemScreen> {
   TextEditingController _textEditingController = TextEditingController();
   final List<String> imgList = [
-    'assets/images/image 7.png',
-    'assets/images/image 7.png',
-    'assets/images/image 7.png',
+    'assets/images/Problem/image4 44.jpg',
+    'assets/images/Problem/IMG2_V3.jpg',
+    'assets/images/Problem/P1_C1_V4.jpg',
+    'assets/images/Problem/P10_B2_V2.jpg',
   ];
   final List<String> dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
   int _current = 0;
 
-  fetchsoftware() async {
-    await problemController.getproblem();
-    setState(() {});
-  }
-
-  void initState() {
-    fetchsoftware();
-    ;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ProblemController>(
+    return GetBuilder<GlobalController>(
       builder: (controller) => Scaffold(
           body: SafeArea(
               child: SingleChildScrollView(
@@ -106,9 +95,9 @@ class _ProblemScreenState extends State<ProblemScreen> {
                           ),
                           Positioned(
                             bottom: 24,
-                            right: 115,
+                            right: 100,
                             child: CarouselIndicator(
-                              count: 3,
+                              count: 4,
                               index: _current,
                               activeColor: mainColor,
                               color: Colors.white60,
@@ -118,20 +107,20 @@ class _ProblemScreenState extends State<ProblemScreen> {
                         ],
                       ),
                     ),
-                    controller.problems.isNotEmpty
-                        ? Text(controller.problems[0].name.toString())
+                    controller.appConfig.isNotEmpty
+                        ? Text(controller.appConfig[0].value.toString())
                         : SizedBox(),
-                    if (controller.problems.isNotEmpty)
+                    if (controller.appConfig.isNotEmpty)
                       Padding(
                         padding: const EdgeInsets.only(top: 8, bottom: 8),
-                        child: Text(controller.problems[13].name.toString(),
+                        child: Text(controller.appConfig[13].name.toString(),
                             style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500,
                                 color: mainColor)),
                       ),
-                    if (controller.problems.isNotEmpty)
-                      Text(controller.problems[13].description!)
+                    if (controller.appConfig.isNotEmpty)
+                      Text(controller.appConfig[13].description!)
                   ],
                 ),
               ),

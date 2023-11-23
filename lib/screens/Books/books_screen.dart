@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'package:books/models/books_model.dart';
 import 'package:books/screens/Books/bookcontroller.dart';
 import 'package:books/screens/Books/search_book.dart';
+import 'package:books/screens/home/homecontroller.dart';
+import 'package:books/static/bookBox.dart';
 import 'package:books/values/colors.dart';
 import 'package:books/values/controller.dart';
 import 'package:books/values/string.dart';
@@ -41,293 +43,114 @@ class _BooksScreenState extends State<BooksScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<BookController>(
+    return GetBuilder<HomeController>(
       builder: (controller) => Scaffold(
         body: SafeArea(
-          child: Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.22,
-                width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.only(right: 20, left: 20),
-                decoration: BoxDecoration(color: mainColor),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Books',
-                      style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w700,
-                          color: white),
-                    ),
-                    Divider(),
-                    Container(
-                      margin: EdgeInsets.only(top: 12),
-                      decoration: BoxDecoration(
-                        color: white.withOpacity(0.8),
-                        border: Border.all(color: borderGreen, width: 1),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.22,
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.only(right: 20, left: 20),
+                  decoration: BoxDecoration(color: mainColor),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Books',
+                        style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w700,
+                            color: white),
                       ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10.0),
-                                bottomLeft: Radius.circular(10.0),
-                              ),
-                              child: TextField(
-                                onChanged: controller.searchBooks,
-                                controller: _textEditingController,
-                                decoration: InputDecoration(
-                                  hintText: 'Search Here',
-                                  border: InputBorder.none,
-                                  hintStyle: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w400),
-                                  contentPadding: EdgeInsets.only(left: 20),
+                      Divider(),
+                      Container(
+                        margin: EdgeInsets.only(top: 12),
+                        decoration: BoxDecoration(
+                          color: white.withOpacity(0.8),
+                          border: Border.all(color: borderGreen, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10.0),
+                                  bottomLeft: Radius.circular(10.0),
                                 ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 55,
-                            width: 55,
-                            decoration: BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(10.0),
-                                bottomRight: Radius.circular(10.0),
-                                topLeft: Radius.circular(10.0),
-                                bottomLeft: Radius.circular(10.0),
-                              ),
-                            ),
-                            child: IconButton(
-                              icon: Icon(Icons.search),
-                              onPressed: () {
-                                String searchText = _textEditingController.text;
-                                controller.searchBooks(searchText);
-                                print('Search: $searchText');
-                                // Perform the action when the button is pressed
-
-                                print('Search: $searchText');
-
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SearchBook()));
-                                print('object');
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Flexible(
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  // child: FutureBuilder<List<DataModel>>(
-                  //   future: loadJsonData(),
-                  //   builder: (context, snapshot) {
-                  //     if (snapshot.connectionState == ConnectionState.waiting) {
-                  //       return Center(
-                  //         child:
-                  //             CircularProgressIndicator(), // Show loading indicator.
-                  //       );
-                  //     } else if (snapshot.hasError) {
-                  //       return Center(
-                  //         child: Text('Error: ${snapshot.error}'),
-                  //       );
-                  //     } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  //       return Center(
-                  //         child: Text('No data available.'),
-                  //       );
-                  //     } else {
-                  //       final dataList = snapshot.data!;
-
-                  //     }
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 200,
-                            childAspectRatio: 0.63,
-                            crossAxisSpacing: 12,
-                            mainAxisSpacing: 12),
-                    itemCount: controller.Searchbooks.length,
-                    itemBuilder: (context, index) {
-                      final item = controller.Searchbooks[index];
-                      return Stack(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: mainColor),
-                                borderRadius: BorderRadius.circular(5)),
-                            // height: 300,
-                            child: Wrap(
-                              children: [
-                                SvgPicture.network(
-                                  Image_URL + controller.Searchbooks[index].image!,
-                                  height: 160,
-                                  fit: BoxFit.cover,
-                                  placeholderBuilder: (BuildContext context) =>
-                                      Container(
-                                          padding: const EdgeInsets.all(30.0),
-                                          child:
-                                              const CircularProgressIndicator()),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 2, bottom: 2),
-                                  child: Text(
-                                    controller.Searchbooks[index].name!,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w700),
+                                child: TextField(
+                                  onChanged: controller.searchBooks,
+                                  controller: _textEditingController,
+                                  decoration: InputDecoration(
+                                    hintText: 'Search Here',
+                                    border: InputBorder.none,
+                                    hintStyle: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w400),
+                                    contentPadding: EdgeInsets.only(left: 20),
                                   ),
                                 ),
-                                Row(
-                                  children: [
-                                    // DropdownButton<String>(
-                                    //   value: 'One',
-                                    //   icon: Visibility(
-                                    //       visible: false,
-                                    //       child:
-                                    //           Icon(Icons.arrow_downward)),
-                                    //   iconSize: 12,
-                                    //   elevation: 4,
-                                    //   style: const TextStyle(
-                                    //       color: white),
-                                    //   underline: Container(
-                                    //     height: 0,
-                                    //     color: white,
-                                    //   ),
-                                    //   // borderRadius: ,
-                                    //   onChanged: (String? newValue) {
-                                    //     setState(() {
-                                    //       // dropdownValue = newValue!;
-                                    //     });
-                                    //   },
-                                    //   items: <String>[
-                                    //     'One',
-                                    //     'Two',
-                                    //     'Free',
-                                    //     'Four'
-                                    //   ].map<DropdownMenuItem<String>>(
-                                    //       (String value) {
-                                    //     return DropdownMenuItem<String>(
-                                    //       value: value,
-                                    //       child: Container(
-                                    //           padding: EdgeInsets.all(4),
-                                    //           decoration: BoxDecoration(
-                                    //               borderRadius:
-                                    //                   BorderRadius.circular(
-                                    //                       4),
-                                    //               color: mainColor),
-                                    //           child: Text(value)),
-                                    //     );
-                                    //   }).toList(),
-                                    // ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: mainColor,
-                                          borderRadius:
-                                              BorderRadius.circular(4)),
-                                      padding: EdgeInsets.only(
-                                          left: 4, right: 4, top: 2, bottom: 2),
-                                      child: Text(
-                                        'Pdf',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            color: white),
-                                      ),
-                                    ),
-                                    Container(
-                                        margin: EdgeInsets.only(
-                                            left: 1.5, right: 1.5),
-                                        decoration: BoxDecoration(
-                                            color: mainColor,
-                                            borderRadius:
-                                                BorderRadius.circular(4)),
-                                        padding: EdgeInsets.all(4),
-                                        child: Icon(
-                                          Icons.download_for_offline_rounded,
-                                          size: 15,
-                                          color: white,
-                                        )),
-                                    Container(
-                                        decoration: BoxDecoration(
-                                            color: mainColor,
-                                            borderRadius:
-                                                BorderRadius.circular(4)),
-                                        padding: EdgeInsets.all(4),
-                                        child: Icon(
-                                          Icons.info_outline_rounded,
-                                          size: 15,
-                                          color: white,
-                                        )),
-                                    Container(
-                                        margin: EdgeInsets.only(
-                                            left: 1.5, right: 1.5),
-                                        decoration: BoxDecoration(
-                                            color: mainColor,
-                                            borderRadius:
-                                                BorderRadius.circular(4)),
-                                        padding: EdgeInsets.all(4),
-                                        child: Icon(
-                                          Icons.search,
-                                          size: 15,
-                                          color: white,
-                                        )),
-                                    Container(
-                                        decoration: BoxDecoration(
-                                            color: mainColor,
-                                            borderRadius:
-                                                BorderRadius.circular(4)),
-                                        padding: EdgeInsets.all(4),
-                                        child: Icon(
-                                          Icons.print,
-                                          size: 15,
-                                          color: white,
-                                        )),
-                                  ],
-                                )
-                              ],
+                              ),
                             ),
-                          ),
-                          Positioned(
-                              right: 18,
-                              child: Container(
-                                padding: EdgeInsets.only(
-                                    left: 6, right: 6, bottom: 6, top: 8),
-                                decoration: BoxDecoration(
-                                    color: mainColor,
-                                    borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(5),
-                                        bottomRight: Radius.circular(5))),
-                                child: Text(
-                                  '#1',
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w800,
-                                      color: white),
+                            Container(
+                              height: 55,
+                              width: 55,
+                              decoration: BoxDecoration(
+                                color: white,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(10.0),
+                                  topLeft: Radius.circular(10.0),
+                                  bottomLeft: Radius.circular(10.0),
                                 ),
-                              ))
-                        ],
-                      );
-                    },
+                              ),
+                              child: IconButton(
+                                icon: Icon(Icons.search),
+                                onPressed: () {
+                                  String searchText = _textEditingController.text;
+                                  controller.searchBooks(searchText);
+                                  print('Search: $searchText');
+                                  // Perform the action when the button is pressed
+          
+                                  print('Search: $searchText');
+          
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SearchBook()));
+                                  print('object');
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            ],
+                 Container(
+                  padding: EdgeInsets.all(12),
+                   child: GridView.builder(
+                    padding: EdgeInsets.all(0),
+                    shrinkWrap: true,
+                    physics: const BouncingScrollPhysics(),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 3,
+                      mainAxisSpacing: 15,
+                      childAspectRatio: 1.6,
+                    ),
+                    itemCount: controller.Searchbooks.length,
+                    itemBuilder: (context, index) {
+                      // final item = controller.Searchbooks[index];
+                      return BookCard(index: index);
+                    },
+                                 ),
+                 ),
+              ],
+            ),
           ),
         ),
       ),

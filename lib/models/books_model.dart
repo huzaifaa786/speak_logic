@@ -1,5 +1,7 @@
 
 
+import 'package:books/helpers/utils.dart';
+
 class Book {
   int? id;
   String? name;
@@ -15,7 +17,7 @@ class Book {
   Book(book) {
     id = book['id'];
     name = book['name'];
-    image = book['image'];
+    image = BASEURL + book['image'];
     pdf = book['pdf'];
     image2 = book['image2'];
     epub = book['epub'];

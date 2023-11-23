@@ -7,14 +7,12 @@ import 'package:books/screens/Question/questioncontroller.dart';
 import 'package:books/screens/auth/login_screen.dart';
 import 'package:books/screens/auth/register.dart';
 import 'package:books/screens/forum/forum.dart';
+import 'package:books/screens/home/globalcontroller.dart';
 import 'package:books/screens/home/homecontroller.dart';
 import 'package:books/screens/home/main_screen.dart';
 import 'package:books/screens/problem/problem.dart';
-import 'package:books/screens/problem/problemcontroller.dart';
 import 'package:books/screens/problem/problemlist.dart';
 import 'package:books/screens/software/softwarecontroller.dart';
-import 'package:books/screens/solution/solutioncontroller.dart';
-import 'package:books/screens/solution/soutionlist.dart';
 import 'package:books/screens/utils/bottomNavBar/bottomNaviBar.dart';
 import 'package:books/screens/video/video.dart';
 import 'package:books/screens/video/videocontroller.dart';
@@ -23,21 +21,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get_storage/get_storage.dart';
 
 void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+  await FlutterDownloader.initialize(
+      debug: true, 
+      ignoreSsl: true // option: set to false to disable working with http links (default: false)
+      );
+      
   await LoadingHelper.init();
   Get.put(BookController());
   Get.put(QuestionController());
   Get.put(VideoController());
   Get.put(SoftwareController());
   Get.put(HomeController());
-  Get.put(SolutionController());
-  Get.put(ProblemController());
+  Get.put(GlobalController());
 
   await GetStorage.init();
 
   WidgetsFlutterBinding.ensureInitialized();
+  
   runApp(const MyApp());
 }
 
