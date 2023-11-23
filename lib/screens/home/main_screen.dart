@@ -256,8 +256,8 @@ class _MainScreenState extends State<MainScreen> {
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 3,
-                            mainAxisSpacing: 15,
-                            childAspectRatio: 1.6,
+                            mainAxisSpacing: 20,
+                            childAspectRatio: 0.7,
                           ),
                           itemCount: controller.Searchbooks.length,
                           itemBuilder: (context, index) {

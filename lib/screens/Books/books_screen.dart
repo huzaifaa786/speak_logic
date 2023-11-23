@@ -137,10 +137,10 @@ class _BooksScreenState extends State<BooksScreen> {
                     shrinkWrap: true,
                     physics: const BouncingScrollPhysics(),
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
+                    crossAxisCount: 2,
                       crossAxisSpacing: 3,
-                      mainAxisSpacing: 15,
-                      childAspectRatio: 1.6,
+                      mainAxisSpacing: 20,
+                      childAspectRatio: 0.7,
                     ),
                     itemCount: controller.Searchbooks.length,
                     itemBuilder: (context, index) {
