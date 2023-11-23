@@ -271,9 +271,8 @@ class _MainScreenState extends State<MainScreen> {
                             
                                       child: Column(
                                         children: [
-                                          SvgPicture.network(
-                                            Image_URL +
-                                                controller.Searchbooks[i].image!,
+                                          SvgPicture.asset(
+                                                'assets/images/book.svg',
                                             height: 160,
                                             fit: BoxFit.cover,
                                             placeholderBuilder: (BuildContext
@@ -307,11 +306,9 @@ class _MainScreenState extends State<MainScreen> {
                                               GestureDetector(
                                                 onTap: () {
                                                   Get.to(() => PDFScreen(
-                                                        path: '${BASEURL}' +
-                                                            controller
-                                                                .Searchbooks[i]
-                                                                .pdf!,
-                                                      ));
+                                                            path:
+                                                                'https://demo.cashwecan.com/uploaded_files/pdf/sample-pdf.pdf',
+                                                          ));
                                                 },
                                                 child: Container(
                                                   decoration: BoxDecoration(
@@ -430,10 +427,7 @@ class _MainScreenState extends State<MainScreen> {
                                         width: MediaQuery.of(context).size.width*0.4,
                                         child: Column(
                                           children: [
-                                            SvgPicture.network(
-                                              Image_URL +
-                                                  controller
-                                                      .Searchbooks[i + 1].image!,
+                                            SvgPicture.asset('assets/images/book.svg',
                                               height: 160,
                                               fit: BoxFit.cover,
                                               placeholderBuilder: (BuildContext
@@ -469,11 +463,7 @@ class _MainScreenState extends State<MainScreen> {
                                                 GestureDetector(
                                                   onTap: () {
                                                     Get.to(() => PDFScreen(
-                                                          path: '${BASEURL}' +
-                                                              controller
-                                                                  .Searchbooks[
-                                                                      i + 1]
-                                                                  .pdf!,
+                                                          path: 'https://demo.cashwecan.com/uploaded_files/pdf/sample-pdf.pdf',
                                                         ));
                                                   },
                                                   child: Container(

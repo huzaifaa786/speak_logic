@@ -2,6 +2,7 @@ import 'package:books/api/api.dart';
 import 'package:books/helpers/loading.dart';
 import 'package:books/models/books_model.dart';
 import 'package:books/values/string.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 
@@ -29,6 +30,8 @@ class HomeController extends GetxController {
     print(books);
     update();
   }
+
+  
 
   void searchBooks(String query) {
     if (query == '') {
