@@ -1,5 +1,4 @@
 import 'package:books/screens/Announcements/Announcements.dart';
-import 'package:books/screens/Books/mybook.dart';
 import 'package:books/screens/Question/question.dart';
 import 'package:books/screens/contactus/contactus.dart';
 import 'package:books/screens/forum/forum.dart';
@@ -219,27 +218,6 @@ class SideDrawer extends StatelessWidget {
                     children: [
                       Icon(Icons.circle_notifications_outlined),
                       Text(' Announcements'),
-                    ],
-                  ),
-                  Icon(Icons.keyboard_arrow_right),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => MyBook()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.question_mark_outlined),
-                      Text(' My books'),
                     ],
                   ),
                   Icon(Icons.keyboard_arrow_right),
